@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transaction Analyzer Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --text: #e7ecf3;
+      --muted: #8b9cb3;
+      --border: #2d3a4f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { margin-bottom: 2rem; }
+    header h1 { font-size: 1.75rem; font-weight: 600; }
+    header p { color: var(--muted); margin-top: 0.25rem; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .stat-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-card .value { font-size: 1.5rem; font-weight: 600; margin-top: 0.35rem; }
+    .stat-card.spent .value { color: #f87171; }
+    .stat-card.income .value { color: #4ade80; }
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 900px) { .charts { grid-template-columns: 1fr; } }
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .chart-card h2 { font-size: 1rem; margin-bottom: 0.75rem; font-weight: 500; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: #243044; font-weight: 500; font-size: 0.85rem; color: var(--muted); }
+    tr:last-child td { border-bottom: none; }
+    .section-title { font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Transaction Analyzer</h1>
+      <p>Source: {{ source_file }} · {{ analysis.transaction_count }} transactions</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat-card spent">
+        <div class="label">Total spent</div>
+        <div class="value">${{ "%.2f"|format(analysis.total_spent) }}</div>
+      </div>
+      <div class="stat-card income">
+        <div class="label">Total income</div>
+        <div class="value">${{ "%.2f"|format(analysis.total_income) }}</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Net flow</div>
+        <div class="value">${{ "%.2f"|format(analysis.net_flow) }}</div>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-card">
+        <h2>Spending by category</h2>
+        <div id="pie-chart"></div>
+      </div>
+      <div class="chart-card">
+        <h2>Monthly spending trends</h2>
+        <div id="line-chart"></div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Top 5 merchants</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Merchant</th>
+          <th>Total spent</th>
+          <th>Transactions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in analysis.top_merchants %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ m.merchant }}</td>
+          <td>${{ "%.2f"|format(m.total) }}</td>
+          <td>{{ m.transactions }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4">No merchant data available.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script id="analysis-data" type="application/json">{{ analysis | tojson }}</script>
+  <script>
+    const analysis = JSON.parse(document.getElementById("analysis-data").textContent);
+    const plotLayout = {
+      paper_bgcolor: "transparent",
+      plot_bgcolor: "transparent",
+      font: { color: "#e7ecf3", family: "Segoe UI, system-ui, sans-serif" },
+      margin: { t: 24, r: 16, b: 48, l: 56 },
+      showlegend: true,
+      legend: { orientation: "h", y: -0.15 },
+    };
+
+    Plotly.newPlot("pie-chart", [{
+      type: "pie",
+      labels: analysis.category_chart.map(d => d.category),
+      values: analysis.category_chart.map(d => d.amount),
+      hole: 0.45,
+      marker: { colors: ["#3b82f6", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#06b6d4", "#f87171", "#a3e635"] },
+      textinfo: "label+percent",
+    }], { ...plotLayout, height: 360 }, { responsive: true, displayModeBar: false });
+
+    Plotly.newPlot("line-chart", [{
+      type: "scatter",
+      mode: "lines+markers",
+      x: analysis.monthly_chart.map(d => d.month),
+      y: analysis.monthly_chart.map(d => d.amount),
+      line: { color: "#3b82f6", width: 3 },
+      marker: { size: 8, color: "#60a5fa" },
+      fill: "tozeroy",
+      fillcolor: "rgba(59, 130, 246, 0.15)",
+    }], {
+      ...plotLayout,
+      height: 360,
+      xaxis: { title: "Month", gridcolor: "#2d3a4f" },
+      yaxis: { title: "Amount ($)", gridcolor: "#2d3a4f" },
+      showlegend: false,
+    }, { responsive: true, displayModeBar: false });
+  </script>
+</body>
+</html>

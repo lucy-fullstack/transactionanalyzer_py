@@ -1,0 +1,121 @@
+date,description,amount,merchant
+2024-01-01,Payroll direct deposit,3200.00,Employer Inc
+2024-01-04,Shopping,-46.44,Walmart
+2024-01-05,Household supplies,-43.98,Target
+2024-01-06,Phone bill,-65.00,Verizon
+2024-01-07,Downtown parking,-17.48,Parking Metro
+2024-01-08,Ride to airport,-21.95,Uber
+2024-01-12,Electronics,-162.80,Best Buy
+2024-01-15,Household supplies,-53.88,Target
+2024-01-17,Coffee purchase,-7.72,Starbucks
+2024-01-20,Online course,-32.67,Udemy
+2024-01-23,Online order,-42.80,Amazon
+2024-01-24,Monthly subscription,-15.99,Netflix
+2024-01-27,Internet bill,-79.99,Comcast
+2024-01-28,Grocery shopping,-100.15,Whole Foods
+2024-01-31,Weekly groceries,-64.88,Trader Joe's
+2024-02-01,Payroll direct deposit,3200.00,Employer Inc
+2024-02-03,Shopping,-70.33,Walmart
+2024-02-04,Downtown parking,-14.50,Parking Metro
+2024-02-07,Grocery shopping,-94.99,Whole Foods
+2024-02-08,Ride to airport,-32.58,Uber
+2024-02-11,Weekly groceries,-71.42,Trader Joe's
+2024-02-13,Gas station fill-up,-58.07,Shell Gas
+2024-02-14,Phone bill,-65.00,Verizon
+2024-02-16,Dinner out,-80.40,Local Restaurant
+2024-02-19,Gas station fill-up,-59.58,Shell Gas
+2024-02-21,Shopping,-73.61,Walmart
+2024-02-22,Phone bill,-65.00,Verizon
+2024-02-25,Household supplies,-70.19,Target
+2024-02-27,Weekly groceries,-71.08,Trader Joe's
+2024-03-01,Payroll direct deposit,3200.00,Employer Inc
+2024-03-01,Downtown parking,-23.39,Parking Metro
+2024-03-05,Fast food lunch,-16.68,McDonald's
+2024-03-08,Shopping,-62.81,Walmart
+2024-03-11,Online order,-44.67,Amazon
+2024-03-15,Game purchase,-47.53,Steam
+2024-03-17,Internet bill,-79.99,Comcast
+2024-03-18,Streaming service,-7.99,Hulu
+2024-03-20,Monthly subscription,-15.99,Netflix
+2024-03-21,Phone bill,-65.00,Verizon
+2024-03-25,Weekly groceries,-74.82,Trader Joe's
+2024-03-26,Streaming service,-7.99,Hulu
+2024-03-29,Phone bill,-65.00,Verizon
+2024-03-30,Furniture,-192.19,IKEA
+2024-04-01,Payroll direct deposit,3200.00,Employer Inc
+2024-04-03,Flight ticket,-303.69,Delta Airlines
+2024-04-06,Coffee purchase,-8.55,Starbucks
+2024-04-07,Streaming service,-7.99,Hulu
+2024-04-09,Shopping,-55.26,Walmart
+2024-04-11,Online order,-52.24,Amazon
+2024-04-12,Electronics,-291.09,Best Buy
+2024-04-13,Dinner out,-67.97,Local Restaurant
+2024-04-16,Monthly subscription,-15.99,Netflix
+2024-04-17,Household supplies,-36.74,Target
+2024-04-18,Ride to airport,-30.52,Uber
+2024-04-20,Furniture,-174.77,IKEA
+2024-04-22,Online order,-69.25,Amazon
+2024-04-26,Premium subscription,-10.99,Spotify
+2024-04-28,Fast food lunch,-18.44,McDonald's
+2024-05-01,Payroll direct deposit,3200.00,Employer Inc
+2024-05-01,Online course,-29.34,Udemy
+2024-05-05,Accessory purchase,-183.94,Apple Store
+2024-05-06,Monthly subscription,-15.99,Netflix
+2024-05-08,Prescription pickup,-22.97,CVS Pharmacy
+2024-05-09,Downtown parking,-14.86,Parking Metro
+2024-05-11,Online course,-38.92,Udemy
+2024-05-14,Ride to airport,-33.42,Uber
+2024-05-17,Ride to airport,-26.89,Uber
+2024-05-19,Phone bill,-65.00,Verizon
+2024-05-23,Game purchase,-58.06,Steam
+2024-05-27,Household supplies,-68.57,Target
+2024-05-31,Fast food lunch,-13.06,McDonald's
+2024-06-01,Payroll direct deposit,3200.00,Employer Inc
+2024-06-04,Internet bill,-79.99,Comcast
+2024-06-05,Game purchase,-31.62,Steam
+2024-06-08,Grocery shopping,-75.52,Whole Foods
+2024-06-10,Monthly subscription,-15.99,Netflix
+2024-06-14,Electronics,-205.26,Best Buy
+2024-06-16,Gas station fill-up,-56.57,Shell Gas
+2024-06-17,Ride to airport,-25.70,Uber
+2024-06-18,Grocery shopping,-94.31,Whole Foods
+2024-06-20,Ride to airport,-33.77,Uber
+2024-06-24,Gas station fill-up,-58.67,Shell Gas
+2024-06-25,Fast food lunch,-18.03,McDonald's
+2024-06-29,Gas station fill-up,-58.22,Shell Gas
+2024-07-01,Payroll direct deposit,3200.00,Employer Inc
+2024-07-03,Premium subscription,-10.99,Spotify
+2024-07-07,Flight ticket,-302.11,Delta Airlines
+2024-07-09,Online order,-41.29,Amazon
+2024-07-10,Grocery shopping,-88.81,Whole Foods
+2024-07-11,Game purchase,-39.40,Steam
+2024-07-13,Downtown parking,-18.20,Parking Metro
+2024-07-14,Grocery shopping,-117.55,Whole Foods
+2024-07-15,Gas station fill-up,-53.12,Shell Gas
+2024-07-19,Phone bill,-65.00,Verizon
+2024-07-21,Monthly subscription,-15.99,Netflix
+2024-07-22,Downtown parking,-19.73,Parking Metro
+2024-07-25,Ride share,-23.60,Lyft
+2024-07-28,Premium subscription,-10.99,Spotify
+2024-07-30,Household supplies,-45.83,Target
+2024-08-01,Payroll direct deposit,3200.00,Employer Inc
+2024-08-03,Phone bill,-65.00,Verizon
+2024-08-04,Prescription pickup,-43.40,CVS Pharmacy
+2024-08-05,Coffee purchase,-6.45,Starbucks
+2024-08-08,Ride to airport,-27.28,Uber
+2024-08-09,Online order,-85.53,Amazon
+2024-08-11,Household supplies,-50.39,Target
+2024-08-14,Accessory purchase,-174.06,Apple Store
+2024-08-15,Dinner out,-94.35,Local Restaurant
+2024-08-18,Phone bill,-65.00,Verizon
+2024-08-20,Phone bill,-65.00,Verizon
+2024-08-21,Premium subscription,-10.99,Spotify
+2024-08-24,Game purchase,-46.59,Steam
+2024-08-27,Flight ticket,-326.65,Delta Airlines
+2024-08-30,Fast food lunch,-16.88,McDonald's
+2024-08-31,Streaming service,-7.99,Hulu
+2024-09-01,Payroll direct deposit,3200.00,Employer Inc
+2024-09-03,Ride to airport,-28.89,Uber
+2024-10-01,Payroll direct deposit,3200.00,Employer Inc
+2024-11-01,Payroll direct deposit,3200.00,Employer Inc
+2024-12-01,Payroll direct deposit,3200.00,Employer Inc
